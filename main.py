@@ -12,4 +12,13 @@ def get_weather_history(days):
 def trends(history):
     weather_occurences = []
     for weather in history:
-        if weather in
+        if weather in history:
+            weather_occurences[weather] +=1
+        else:
+            weather_occurences[weather] = 1
+        return weather_occurences
+        
+        
+def anaylyze(history):
+    weather_occurences = trends(history)
+    
