@@ -35,14 +35,14 @@ def trends(history):
     for day in history:
         weather = day["weather"]
         if weather in weather_occurences:
-            weather_occurences[weather] += 1
+            weather_occurences[weather] += 1 # used chatgpt to know how to increment the weather 
         else:
-            weather_occurences[weather] = 1
+            weather_occurences[weather] = 1  # used chatgpt to know how to increment the weather
     return weather_occurences
 
 def analyze(history):
     weather_occurences = trends(history)
-    most_frequent_weather = max(weather_occurences, key=weather_occurences.get)
+    most_frequent_weather = max(weather_occurences, key=weather_occurences.get) # I didn't know how to get the info from the database, so I asked chatgpt and it gave me a key command to store it
     print(f"The most frequent weather is: {most_frequent_weather}")
     return most_frequent_weather
 
@@ -51,9 +51,7 @@ def random_weather():
     return random.choice(weather_options)
 
 def calculate_temperature(history):
-    return sum(day["temperature"] for day in history) / len(history) # inspired by copilot
-
-
+    return sum(day["temperature"] for day in history) / len(history) # inspired by copilot -> didn't know how to calculate the average
 
 history = get_weather_history(5)
 analyze(history)
